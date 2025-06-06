@@ -1,70 +1,73 @@
 # API Endpoints Used in Project
 
-1. Create Dashboard
+# 1. Create Dashboard: /POST/v1/dashboards/create
 
-Will first validate request fields, then generate a unique dashboard ID, store dashboard in DB, and return JSON with dashboard ID info.
+Example Body:
 
-# /POST/v1/dashboards/create
-
-Body:
+```json```
 
 {
-  "title": string,
+  "dashboard_title": "test", 
+  "owner_id": "123",          
   "metrics": {
-    "headcount": int,
-    "payrollCost": decimal,
-    "overtimeHours": int
+    "headcount": 50,          
+    "payrollCost": 1700000.52,  
+    "overtimeHours": 90        
   }
 }
 
 
 Example Response 200:
 
+```json```
+
 {
-  "dashboardId": "1",
-  "message": "Dashboard created successfully."
+    "created_at": "Fri, 05 Jun 2025 02:18:48 GMT",
+    "id": 3,
+    "metrics": {
+        "headcount": 50,
+        "overtimeHours": 90,
+        "payrollCost": 1700000.52
+    },
+    "owner_id": "123",
+    "title": "test"
 }
 
-
-2. View Dashboard
-
-Will verify if requestor is authorized, check if it can find dashboard using ID, then return dashboard inforomation to user
-# /GET/v1/dashboards/{dashboard_id}
+# 2. View Dashboard: /GET/v1/dashboards/{dashboard_id}
 
 
 Example Response 200:
 
+```json```
+
 {
-  "dashboardId": "1",
-  "title": "HR Metrics",
-  "ownerId": "1",
+  "dashboard_title": "test",
+  "owner_id": "123",
   "metrics": {
     "headcount": 50,
-    "payrollCost": 200000,
-    "overtimeHours": 85
+    "payrollCost": 1700000.52,
+    "overtimeHours": 90
   }
 }
 
 
-3. Share Dashboard
+# 3. Share Dashboard: /POST/v1/dashboards/{dashboard_id}/share
 
-Allows HR Practitioner to share dashboard with list of managers
+Example Body:
 
-# /POST/v1/dashboards/{dashboard_id}/share
+```json```
 
 {
-  "managerUserIds": [
-    "1",
-    "2",
-    "3"...
-  ]
+  "managerIds": ["1","2","3"]
 }
 
 Example Response 200:
 
+```json```
+
 {
-  "shared_with": ["1","2","3"..]
-  "message": "Dashboard shared successfully."
+    "message": "Dashboard 3 is now shared successfully",
+    "shared_with": "Manager Ids: ['1', '2', '3']"
 }
 
 

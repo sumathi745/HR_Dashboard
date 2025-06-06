@@ -11,10 +11,17 @@ This is a project for building an HR Dashboard system.
 # How to Run
 
 git clone https://github.com/sumathi745/HR_Dashboard.git
+
 cd HR_Dashboard
+
+(make sure Python is installed)
+
 python -m venv venv
+
 source venv/bin/activate  
+
 pip install -r requirements.txt
+
 python app.py
 
 Run http://127.0.0.1:5000/ in your browser.
