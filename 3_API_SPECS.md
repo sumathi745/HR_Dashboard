@@ -1,10 +1,12 @@
 # API Endpoints Used in Project
 
-# 1. Create Dashboard: /POST/v1/dashboards/create
+# 1. Create Dashboard
+
+### /POST/v1/dashboards/create
 
 Example Body:
 
-```json```
+```json
 
 {
   "dashboard_title": "test", 
@@ -19,7 +21,6 @@ Example Body:
 
 Example Response 200:
 
-```json```
 
 {
     "created_at": "Fri, 05 Jun 2025 02:18:48 GMT",
@@ -33,12 +34,13 @@ Example Response 200:
     "title": "test"
 }
 
-# 2. View Dashboard: /GET/v1/dashboards/{dashboard_id}
+# 2. View Dashboard
+
+### /GET/v1/dashboards/{dashboard_id}
 
 
 Example Response 200:
 
-```json```
 
 {
   "dashboard_title": "test",
@@ -51,11 +53,12 @@ Example Response 200:
 }
 
 
-# 3. Share Dashboard: /POST/v1/dashboards/{dashboard_id}/share
+# 3. Share Dashboard
+
+### /POST/v1/dashboards/{dashboard_id}/share
 
 Example Body:
 
-```json```
 
 {
   "managerIds": ["1","2","3"]
@@ -63,7 +66,6 @@ Example Body:
 
 Example Response 200:
 
-```json```
 
 {
     "message": "Dashboard 3 is now shared successfully",
