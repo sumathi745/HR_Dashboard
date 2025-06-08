@@ -14,7 +14,7 @@ Stores information about HR Practitioners and Managers.
 # Dashboards Table
 
 |  Column        | DataType |   Description                   |
-|----------|-----------|--------------------------------------|
+|----------------|----------|---------------------------------|
 | dashboard_id   | int      | Unique ID for the dashboard     | (primary key)
 | owner_id       | int      | Users.user_id                   | (foreign key)
 | created_at     | datetime | Timestamp dashboard was created |
@@ -25,12 +25,13 @@ Stores information about HR Practitioners and Managers.
 
 # Shared Dashboards Table
 
-|  Column        | DataType |   Description                                 |
-|----------|-----------|----------------------------------------------------|
-| share_id     | int             | Unique ID for shared dashboard           | (primary key)
-| dashboard_id | int             | Dashboards.dashboard_id                  | (foreign key)
-| shared_at    | datetime        | Timestamp when dashboard was last shared |
-
+|  Column      | DataType |   Description                                                                      |
+|--------------|-----------------|-----------------------------------------------------------------------------|
+| share_id     | int             | Unique ID for shared dashboard                                              | (primary key)
+| dashboard_id | int             | Dashboards.dashboard_id                                                     | (foreign key)
+| shared_at    | datetime        | Timestamp when dashboard was last shared                                    |
+| manager_id   | int             | User.user_id of manager that has access                                     | (foreign key)
+| status       | enum            | Status on manager notification job: 'In Progress', 'Complete', or 'Failed'  |           
 
 
 
