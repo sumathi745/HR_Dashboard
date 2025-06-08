@@ -31,7 +31,7 @@ Stores information about HR Practitioners and Managers.
 | dashboard_id | int             | Dashboards.dashboard_id                                                     | (foreign key)
 | shared_at    | datetime        | Timestamp when dashboard was last shared                                    |
 | manager_id   | int             | User.user_id of manager that has access                                     | (foreign key)
-| status       | enum            | Status on manager notification job: 'In Progress', 'Complete', or 'Failed'  |           
+| status       | enum            | Status on manager notification: 'In Progress', 'Complete', or 'Failed'  |           
 
 
 
